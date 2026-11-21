@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Radio Guide</title>
+  <meta name="description" content="What's on across your radio stations.">
+  <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16171a" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="style.css?v=10">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><path d="M8 8a5.6 5.6 0 0 0 0 8M16 8a5.6 5.6 0 0 1 0 8M5.2 5.2a9.6 9.6 0 0 0 0 13.6M18.8 5.2a9.6 9.6 0 0 1 0 13.6"/></svg>
+      <h1>Radio Guide</h1>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="View">
+      <button role="tab" data-view="now" aria-selected="true">Now</button>
+      <button role="tab" data-view="guide" aria-selected="false">Guide</button>
+    </nav>
+    <div class="tools">
+      <label class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+        <input id="q" type="search" placeholder="Search shows, hosts…" autocomplete="off" aria-label="Search programmes">
+      </label>
+      <button id="fav-only" class="chip" aria-pressed="false" title="Show favourite stations only">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>
+        <span>Favourites</span>
+      </button>
+      <button id="arrange" class="chip" title="Favourites and order of stations">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16M3.5 7.5 7 4l3.5 3.5M17 20V4M13.5 16.5 17 20l3.5-3.5"/></svg>
+        <span>Stations</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="view-now" class="view" aria-label="On air now"></section>
+    <section id="view-guide" class="view" hidden aria-label="Programme guide">
+      <div class="days" id="days" role="tablist" aria-label="Day"></div>
+      <div class="grid-wrap" id="grid-wrap"><div class="grid" id="grid"></div></div>
+    </section>
+    <section id="view-search" class="view" hidden aria-label="Search results"></section>
+    <p id="empty" class="empty" hidden></p>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+
+  <dialog id="sheet" class="sheet">
+    <form method="dialog" class="sheet-close"><button aria-label="Close">✕</button></form>
+    <div id="sheet-body"></div>
+  </dialog>
+
+  <script src="app.js?v=10" defer></script>
+</body>
+</html>
